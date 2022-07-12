@@ -1,0 +1,29 @@
+.content {
+  width: 95%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  background-color: var(--blue-baby);
+  padding: 0.5rem 4rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  box-shadow: 0 0.3rem 0.7rem var(--black);
+}
+
+.back {
+  color: var(--blue-baby);
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.back::first-letter {
+  text-transform: uppercase;
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}

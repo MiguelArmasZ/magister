@@ -2,4 +2,13 @@
 
 :root {
   --base: 'Quicksand', sans-serif;
+
+  --white: #eee;
+
+  --black: #222;
+  --dark: #333;
+
+  --blue: #0a3868;
+  --blue-baby: #0bc6fe;
+  --blue-light: #a9d4ea;
 }

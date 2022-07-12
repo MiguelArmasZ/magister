@@ -1,0 +1,19 @@
+.Btn {
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  right: 3%;
+  top: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+}
+
+.Line {
+  height: 1px;
+  background-color: var(--white);
+  width: 100%;
+}

@@ -1,9 +1,11 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { Routing } from './Routing'
 
 export const App = () => {
   return (
-    <div>
-      <h1>hola mundo</h1>
-    </div>
+    <BrowserRouter>
+      <Routing />
+    </BrowserRouter>
   )
 }

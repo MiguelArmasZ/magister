@@ -3,7 +3,7 @@
   width: 5rem;
   position: fixed;
   right: 3%;
-  top: 3%;
+  top: 1%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -12,8 +12,25 @@
   border: none;
 }
 
+@media (max-width: 1023px) {
+  .Btn.active .Line:nth-child(1) {
+    transform: rotate(35deg) translate(5px, 13px);
+  }
+  .Btn.active .Line:nth-child(2) {
+    opacity: 0;
+  }
+  .Btn.active .Line:nth-child(3) {
+    transform: rotate(-35deg) translate(4px, -11px);
+  }
+}
+
 .Line {
-  height: 1px;
+  height: 2px;
   background-color: var(--white);
   width: 100%;
+  transition: all 0.5s;
+}
+
+.Line-black {
+  background-color: var(--black);
 }

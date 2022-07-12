@@ -1,0 +1,34 @@
+.Sidebar {
+  background-color: var(--blue);
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  color: var(--white);
+  min-height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  .Sidebar {
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 80%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: opacity 0.5s, visibility 0.5s, transform 0.5s ease;
+  }
+}
+
+.Sidebar.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0%);
+}
+
+.SVG {
+  max-width: 25rem;
+}

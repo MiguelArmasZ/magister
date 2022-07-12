@@ -3,12 +3,16 @@
 :root {
   --base: 'Quicksand', sans-serif;
 
-  --white: #eee;
+  --white: #fffdfb;
+  --gray: #ccc;
 
   --black: #222;
   --dark: #333;
 
   --blue: #0a3868;
+  --blue-dark: rgb(87 114 148);
   --blue-baby: #0bc6fe;
   --blue-light: #a9d4ea;
+
+  --radius: 1rem;
 }

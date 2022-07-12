@@ -1,0 +1,43 @@
+.Navbar {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+
+.Navbar::before {
+  content: '';
+  display: block;
+  height: 86%;
+  width: 2px;
+  position: absolute;
+  background-color: var(--gray);
+  left: 0;
+  opacity: 0.7;
+}
+
+.Link {
+  padding-left: 3rem;
+  font-weight: bold;
+  position: relative;
+  color: var(--gray);
+}
+
+.Link::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--gray);
+  position: absolute;
+  left: -0.65rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.Link::first-letter {
+  text-transform: uppercase;
+}

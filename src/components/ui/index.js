@@ -1,1 +1,5 @@
 export * from './BtnMenu'
+export * from './Sidebar'
+export * from './Logo'
+export * from './Navbar'
+export * from './Heading'

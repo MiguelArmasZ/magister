@@ -1,0 +1,9 @@
+.Wrap {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.3rem;
+}
+
+.Logo {
+  max-width: 5rem;
+}

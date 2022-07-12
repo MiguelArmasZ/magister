@@ -7,16 +7,6 @@
   min-height: 100vh;
 }
 
-.Header {
-  display: flex;
-  gap: 2rem;
-  font-size: 1.3rem;
-}
-
-.Logo {
-  max-width: 5rem;
-}
-
 .Heading {
   text-align: center;
   line-height: 1.3;

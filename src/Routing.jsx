@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { HomeLayout, MainLayout } from './components/layouts'
-import { Home, Specialty } from './pages'
+import { Home, Hours, Specialty } from './pages'
 
 export const Routing = () => {
   return (
@@ -11,6 +11,7 @@ export const Routing = () => {
       </Route>
       <Route path='/' element={<MainLayout />}>
         <Route path='especialidad' element={<Specialty />} />
+        <Route path='horario-y-modalidad' element={<Hours />} />
       </Route>
     </Routes>
   )

@@ -12,6 +12,12 @@
   border: none;
 }
 
+.Btn.Bg-white {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  /* padding: 0.5rem 1rem; */
+}
+
 @media (max-width: 1023px) {
   .Btn.active .Line:nth-child(1) {
     transform: rotate(35deg) translate(5px, 13px);

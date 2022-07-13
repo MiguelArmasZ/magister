@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 export const MainLayout = () => {
   return (
     <>
-      <BtnMenu class$='Line-black' />
+      <BtnMenu type />
       <div className='wrap'>
         <Sidebar />
         <Outlet />

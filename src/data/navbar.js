@@ -5,7 +5,7 @@ export const navbarLinks = [
   },
   {
     text: 'horario y modalidad',
-    to: '/'
+    to: '/horario-y-modalidad'
   },
   {
     text: 'tarifa',

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 export const Select = ({
   collection,
   name,
+  value,
   class$ = '',
   handleChange
 }) => {
@@ -13,7 +14,11 @@ export const Select = ({
       className={class$}
       name={name}
       id={name}
+      value={value}
     >
+      <option value='' disabled>
+        -- Seleccione --
+      </option>
       {collection.map(({ nombre, id }) => (
         <option key={id} value={nombre}>
           {nombre}
@@ -26,6 +31,7 @@ export const Select = ({
 Select.propTypes = {
   collection: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   class$: PropTypes.string,
   handleChange: PropTypes.func
 }

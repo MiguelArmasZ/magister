@@ -2,7 +2,7 @@ import React from 'react'
 import { Section } from '../components/layouts'
 import { Heading } from '../components/ui'
 import { Link } from 'react-router-dom'
-import { useForm, useGetData } from '../hooks'
+import { useForm, useMainContext, useGetData } from '../hooks'
 import { BtnOptions, Select } from '../components/ui/form'
 import Arrow from '../assets/arrow.png'
 
@@ -10,6 +10,8 @@ export const Specialty = () => {
   const ramas = useGetData('ramas')
   const provincias = useGetData('provincias')
   const alumno = useGetData('alumno')
+
+  const { formValues } = useMainContext()
 
   const [, handleChange] = useForm({
     rama: '',
@@ -30,6 +32,7 @@ export const Specialty = () => {
             collection={ramas}
             class$='select'
             name='rama'
+            value={formValues.rama || ''}
           />
         </div>
 
@@ -42,6 +45,7 @@ export const Specialty = () => {
             collection={provincias}
             class$='select'
             name='provincia'
+            value={formValues.provincia || ''}
           />
         </div>
 
@@ -74,7 +78,7 @@ export const Specialty = () => {
           </button>
         </div>
       </form>
-      <Link className='btn btn--next' to='/'>
+      <Link className='btn btn--next' to='/horario-y-modalidad'>
         siguiente
       </Link>
     </Section>

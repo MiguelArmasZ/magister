@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { ProviderContext } from './Context'
+import { ProviderMainContext } from './context/MainContext'
 import { Routing } from './Routing'
 
 export const App = () => {
   return (
     <BrowserRouter>
-      <ProviderContext>
+      <ProviderMainContext>
         <Routing />
-      </ProviderContext>
+      </ProviderMainContext>
     </BrowserRouter>
   )
 }

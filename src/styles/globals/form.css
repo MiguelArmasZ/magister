@@ -70,6 +70,13 @@
   }
 }
 
+@media (min-width: 1023px) {
+  .keypad--hours {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .btn--form {
   border: 1.4px solid var(--blue-dark);
   background-color: var(--white);

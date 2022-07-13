@@ -37,6 +37,9 @@
 .heading {
   color: var(--blue-dark);
   text-align: center;
+  max-width: 27ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .heading::first-letter {
@@ -56,6 +59,13 @@ a.active::before {
   color: var(--blue-baby);
   font-weight: bold;
   margin-top: 2rem;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
 }
 
 .back::first-letter {

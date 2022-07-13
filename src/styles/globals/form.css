@@ -77,11 +77,22 @@
   color: var(--blue-dark);
   font-weight: normal;
   padding: 1rem 2rem;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.btn--form.active {
+  background-color: var(--blue-dark);
+  color: var(--white);
 }
 
 @media (min-width: 1023px) {
   .btn--form {
     min-width: 15rem;
+  }
+
+  .btn--form:hover {
+    transform: scale(1.05);
   }
 }
 

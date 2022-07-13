@@ -2,9 +2,21 @@ import React from 'react'
 import { Section } from '../components/layouts'
 import { Heading } from '../components/ui'
 import { Link } from 'react-router-dom'
+import { useForm, useGetData } from '../hooks'
+import { BtnOptions, Select } from '../components/ui/form'
 import Arrow from '../assets/arrow.png'
 
 export const Specialty = () => {
+  const ramas = useGetData('ramas')
+  const provincias = useGetData('provincias')
+  const alumno = useGetData('alumno')
+
+  const [, handleChange] = useForm({
+    rama: '',
+    provincia: '',
+    alumno: ''
+  })
+
   return (
     <Section>
       <Heading>¿en que te quieres especializar?</Heading>
@@ -13,22 +25,24 @@ export const Specialty = () => {
           <label className='label' htmlFor='rama'>
             rama <span>(Selecciona una opción)</span>
           </label>
-          <select className='select' name='rama' id='rama'>
-            <option value=''>hola</option>
-            <option value=''>chao</option>
-            <option value=''>adios</option>
-          </select>
+          <Select
+            handleChange={handleChange}
+            collection={ramas}
+            class$='select'
+            name='rama'
+          />
         </div>
 
         <div className='field'>
           <label className='label' htmlFor='provincia'>
             provincia <span>(Selecciona una opción)</span>
           </label>
-          <select className='select' name='provincia' id='provincia'>
-            <option value=''>hola</option>
-            <option value=''>chao</option>
-            <option value=''>adios</option>
-          </select>
+          <Select
+            handleChange={handleChange}
+            collection={provincias}
+            class$='select'
+            name='provincia'
+          />
         </div>
 
         <div className='field alumno'>
@@ -39,17 +53,11 @@ export const Specialty = () => {
             consulta condiciones
             <img className='arrow' src={Arrow} alt='flecha' />
           </a>
-          <div className='keypad'>
-            <button type='button' className='btn btn--form'>
-              no
-            </button>
-            <button type='button' className='btn btn--form'>
-              sí
-            </button>
-            <button type='button' className='btn btn--form'>
-              sí, después de 2017
-            </button>
-          </div>
+          <BtnOptions
+            name='alumno'
+            handleChange={handleChange}
+            options={alumno}
+          />
         </div>
 
         <div className='field'>

@@ -1,3 +1,7 @@
 export * from './Home'
 export * from './Specialty'
 export * from './Hours'
+export * from './Pricing'
+export * from './PersonalData'
+export * from './Direction'
+export * from './Pay'

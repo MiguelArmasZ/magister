@@ -29,9 +29,11 @@
   border-radius: 0.8rem;
   font-weight: bold;
   text-transform: capitalize;
-  box-shadow: 0 0.3rem 0.7rem var(--black);
+  box-shadow: 0 0.3rem 0.7rem var(--dark);
   color: var(--white);
   text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
 .heading {
@@ -52,7 +54,7 @@ a.active {
 
 a.active::before {
   background-color: var(--blue);
-  border: 2px solid var(--white);
+  border: 3px solid var(--white);
 }
 
 .back {

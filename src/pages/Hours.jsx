@@ -8,10 +8,7 @@ import { useForm, useGetData } from '../hooks'
 export const Hours = () => {
   const modalidad = useGetData('modalidades')
   const horario = useGetData('horarios')
-  const [, handleChange] = useForm({
-    modalidad: '',
-    horario: ''
-  })
+  const handleChange = useForm()
 
   return (
     <Section>
@@ -21,12 +18,12 @@ export const Hours = () => {
 
       <form className='form--hours'>
         <div className='field'>
-          <label className='label' htmlFor='rama'>
+          <label className='label' htmlFor='modalidad'>
             modalidad <span>(Selecciona una opción)</span>
           </label>
 
           <BtnOptions
-            class$='keypad--hours'
+            class$='hours'
             options={modalidad}
             name='modalidad'
             handleChange={handleChange}
@@ -34,7 +31,7 @@ export const Hours = () => {
         </div>
 
         <div className='field'>
-          <label className='label' htmlFor='rama'>
+          <label className='label' htmlFor='horario'>
             horario <span>(Selecciona una opción)</span>
           </label>
 
@@ -45,7 +42,7 @@ export const Hours = () => {
           />
         </div>
       </form>
-      <Link className='btn btn--next' to='/horario-y-modalidad'>
+      <Link className='btn btn--next' to='/tarifas'>
         siguiente
       </Link>
       <BtnGoBack />

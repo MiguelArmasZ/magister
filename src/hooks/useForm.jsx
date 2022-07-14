@@ -1,9 +1,7 @@
 /* eslint-disable space-before-function-paren */
-import { useState } from 'react'
 import { useMainContext } from './'
 
-export const useForm = (init) => {
-  const [form] = useState(init)
+export const useForm = () => {
   const { formValues, setFormValues } = useMainContext()
 
   function handleChange(e) {
@@ -13,5 +11,5 @@ export const useForm = (init) => {
     })
   }
 
-  return [form, handleChange]
+  return handleChange
 }

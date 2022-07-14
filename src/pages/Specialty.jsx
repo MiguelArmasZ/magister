@@ -2,22 +2,19 @@ import React from 'react'
 import { Section } from '../components/layouts'
 import { Heading } from '../components/ui'
 import { Link } from 'react-router-dom'
-import { useForm, useMainContext, useGetData } from '../hooks'
-import { BtnOptions, Select } from '../components/ui/form'
-import Arrow from '../assets/arrow.png'
+import { useForm, useGetData } from '../hooks'
+import {
+  BtnOptions,
+  LinkCondition,
+  Select
+} from '../components/ui/form'
 
 export const Specialty = () => {
+  const handleChange = useForm()
+
   const ramas = useGetData('ramas')
   const provincias = useGetData('provincias')
   const alumno = useGetData('alumno')
-
-  const { formValues } = useMainContext()
-
-  const [, handleChange] = useForm({
-    rama: '',
-    provincia: '',
-    alumno: ''
-  })
 
   return (
     <Section>
@@ -32,7 +29,6 @@ export const Specialty = () => {
             collection={ramas}
             class$='select'
             name='rama'
-            value={formValues.rama || ''}
           />
         </div>
 
@@ -45,7 +41,6 @@ export const Specialty = () => {
             collection={provincias}
             class$='select'
             name='provincia'
-            value={formValues.provincia || ''}
           />
         </div>
 
@@ -53,10 +48,7 @@ export const Specialty = () => {
           <label className='label' htmlFor='alumno'>
             ¿has sido alumn@ de Magister?
           </label>
-          <a className='conditions'>
-            consulta condiciones
-            <img className='arrow' src={Arrow} alt='flecha' />
-          </a>
+          <LinkCondition text='consulta condiciones' />
           <BtnOptions
             name='alumno'
             handleChange={handleChange}
@@ -68,10 +60,7 @@ export const Specialty = () => {
           <label className='label' htmlFor='alumno'>
             entrega de material
           </label>
-          <a className='conditions'>
-            consulta condiciones
-            <img className='arrow' src={Arrow} alt='flecha' />
-          </a>
+          <LinkCondition text='consulta condiciones' />
 
           <button type='button' className='btn btn--material'>
             material mes a mes

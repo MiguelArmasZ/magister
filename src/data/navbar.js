@@ -9,18 +9,18 @@ export const navbarLinks = [
   },
   {
     text: 'tarifa',
-    to: '/'
+    to: '/tarifas'
   },
   {
     text: 'datos personales',
-    to: '/'
+    to: '/datos-personales'
   },
   {
     text: 'dirección',
-    to: '/'
+    to: '/direccion'
   },
   {
     text: 'forma de pago',
-    to: '/'
+    to: '/pago'
   }
 ]

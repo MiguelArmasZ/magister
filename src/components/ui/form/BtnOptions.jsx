@@ -9,9 +9,8 @@ export const BtnOptions = ({
   class$ = '',
   handleChange
 }) => {
-  const { formValues } = useMainContext()
-
   const [active, setActive] = useState(null)
+  const { formValues } = useMainContext()
 
   function handleActive(e, i) {
     setActive(i)

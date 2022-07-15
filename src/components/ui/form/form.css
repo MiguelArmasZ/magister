@@ -55,7 +55,8 @@
 }
 
 .label::first-letter,
-.label-checkbox::first-letter {
+.label-checkbox::first-letter,
+.completed::first-letter {
   text-transform: capitalize;
 }
 
@@ -139,7 +140,7 @@ input[type='checkbox'] {
   }
 
   .btn--form:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 }
 
@@ -165,4 +166,10 @@ input[type='checkbox'] {
     width: fit-content;
     margin-right: auto;
   }
+}
+
+.completed {
+  text-align: center;
+  margin-top: 3rem;
+  opacity: 0.7;
 }

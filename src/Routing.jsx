@@ -8,7 +8,9 @@ import {
   Pricing,
   PersonalData,
   Direction,
-  Pay
+  Pay,
+  Reserved,
+  Admin
 } from './pages'
 
 export const Routing = () => {
@@ -22,6 +24,8 @@ export const Routing = () => {
     <Routes>
       <Route path='/' element={<HomeLayout />}>
         <Route index element={<Home />} />
+        <Route path='reserva' element={<Reserved />} />
+        <Route path='admin' element={<Admin />} />
       </Route>
       <Route path='/' element={<MainLayout />}>
         <Route path='especialidad' element={<Specialty />} />

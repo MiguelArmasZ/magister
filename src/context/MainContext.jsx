@@ -6,6 +6,10 @@ export const MainContext = createContext()
 
 export const ProviderMainContext = ({ children }) => {
   const [menu, setMenu] = useState(false)
+  const [sidebarImg, setSidebarImg] = useState('')
+  const [spinner, setSpinner] = useState(false)
+  const [feedback, setFeedback] = useState({})
+
   const [formValues, setFormValues] = useState({
     alumno: '',
     comunidad: '',
@@ -21,32 +25,27 @@ export const ProviderMainContext = ({ children }) => {
     nombre: '',
     pago: '',
     provincia: '',
+    'provincia-examen': '',
     rama: '',
     recomendado: '',
     tarifa: '',
-    zip: ''
+    zip: '',
+    date: new Date(Date.now()).toLocaleString()
   })
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    const props = Object.values(formValues).includes('')
-
-    if (props) {
-      console.log('todos los campos son obligatorios')
-      return
-    }
-
-    console.log('enviando', formValues)
-  }
 
   return (
     <MainContext.Provider
       value={{
         menu,
         setMenu,
+        sidebarImg,
+        setSidebarImg,
+        feedback,
+        setFeedback,
+        spinner,
+        setSpinner,
         formValues,
-        setFormValues,
-        handleSubmit
+        setFormValues
       }}
     >
       {children}

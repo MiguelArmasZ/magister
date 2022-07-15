@@ -1,6 +1,6 @@
 import React from 'react'
-import Arrow from '../../../assets/arrow.png'
 import PropTypes from 'prop-types'
+import Arrow from '../../../assets/arrow.png'
 
 export const LinkCondition = ({ text }) => {
   return (

@@ -28,7 +28,7 @@ export const directionData = [
   },
   {
     label: 'provincia',
-    name: 'provincia',
+    name: 'provincia-examen',
     type: 'text',
     placeholder: 'Ej: Madrid'
   },

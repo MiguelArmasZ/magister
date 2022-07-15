@@ -1,13 +1,27 @@
+/* eslint-disable multiline-ternary */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {
+  useChangeImg,
+  useCompleted,
+  useForm,
+  useGetData,
+  useMainContext
+} from '../hooks'
 import { Section } from '../components/layouts'
 import { BtnGoBack, Heading } from '../components/ui'
-import { BtnOptions } from '../components/ui/form'
-import { useForm, useGetData } from '../hooks'
+import { BtnOptions, Completed } from '../components/ui/form'
+import PricingSVG from '../assets/ilustrations/pricing.svg'
 
 export const Pricing = () => {
+  const { formValues } = useMainContext()
+
+  const completed = useCompleted([formValues.tarifa])
+
   const tarifas = useGetData('tarifas')
   const handleChange = useForm()
+
+  useChangeImg(PricingSVG)
 
   return (
     <Section>
@@ -24,9 +38,16 @@ export const Pricing = () => {
           handleChange={handleChange}
         />
       </div>
-      <Link className='btn btn--next' to='/datos-personales'>
-        siguiente
-      </Link>
+
+      {completed ? (
+        <>
+          <Link className='btn btn--next' to='/datos-personales'>
+            siguiente
+          </Link>
+        </>
+      ) : (
+        <Completed />
+      )}
       <BtnGoBack />
     </Section>
   )

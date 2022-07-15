@@ -1,14 +1,34 @@
+/* eslint-disable multiline-ternary */
 import React from 'react'
+import {
+  useChangeImg,
+  useCompleted,
+  useForm,
+  useMainContext,
+  useRegistration
+} from '../hooks'
 import { Section } from '../components/layouts'
 import { BtnGoBack, Heading } from '../components/ui'
-import { BtnOptions, LinkCondition } from '../components/ui/form'
+import {
+  BtnOptions,
+  Completed,
+  LinkCondition,
+  Spinner
+} from '../components/ui/form'
 import { paymentMethods, recomended } from '../data'
-import { useForm, useMainContext } from '../hooks'
+import PaymentSVG from '../assets/ilustrations/payment.svg'
 
 export const Pay = () => {
-  const { handleSubmit } = useMainContext()
+  const { formValues, feedback, spinner } = useMainContext()
+  const handleSubmit = useRegistration()
+
+  const completed = useCompleted([
+    formValues.pago,
+    formValues.recomendado
+  ])
 
   const handleChange = useForm()
+  useChangeImg(PaymentSVG)
 
   return (
     <Section>
@@ -42,15 +62,25 @@ export const Pay = () => {
         <div className='field'>
           <LinkCondition text='Ver información legal' />
         </div>
-        <input
-          onClick={handleSubmit}
-          value='enviar'
-          type='submit'
-          className='btn btn--next'
-        />
-      </form>
 
-      <BtnGoBack />
+        {spinner && <Spinner />}
+
+        {feedback.state && (
+          <p className='feedback'>{feedback.msg || ''}</p>
+        )}
+
+        {completed ? (
+          <input
+            onClick={handleSubmit}
+            value='enviar'
+            type='submit'
+            className='btn btn--next'
+          />
+        ) : (
+          <Completed />
+        )}
+        <BtnGoBack />
+      </form>
     </Section>
   )
 }

@@ -5,7 +5,7 @@ import s from '../styles/pages/Home.module.css'
 
 export const Home = () => {
   return (
-    <main className={`${s.Main} bg-blue `}>
+    <>
       <Logo />
 
       <h2 className={s.Heading}>¡Comencemos con tu matrícula!</h2>
@@ -22,6 +22,6 @@ export const Home = () => {
       <Link className={`${s.Back} back `} to='/'>
         volver atrás
       </Link>
-    </main>
+    </>
   )
 }

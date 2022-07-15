@@ -1,0 +1,47 @@
+.Card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  color: var(--blue);
+  margin-top: 5rem;
+  overflow: hidden;
+  border: 1px solid var(--white);
+}
+
+.Item {
+  font-weight: bold;
+  padding: 1.5rem;
+  margin: 0;
+}
+
+.Item::first-letter {
+  text-transform: uppercase;
+}
+
+.Item:nth-child(odd) {
+  background-color: var(--gray);
+}
+
+.Item span {
+  font-weight: normal;
+}
+
+.Heading {
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  background-color: var(--blue);
+  margin: 0;
+  color: var(--white);
+}
+
+.Delete {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto 2rem;
+  padding: 1rem 3rem;
+  text-transform: capitalize;
+  border-radius: var(--radius);
+  border: none;
+  background-color: darkred;
+  color: var(--white);
+  cursor: pointer;
+}

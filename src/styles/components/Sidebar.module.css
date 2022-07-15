@@ -11,6 +11,7 @@
 
 @media (max-width: 1023px) {
   .Sidebar {
+    z-index: 1000;
     position: fixed;
     height: 100%;
     left: 0;

@@ -1,14 +1,31 @@
+/* eslint-disable multiline-ternary */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {
+  useChangeImg,
+  useCompleted,
+  useForm,
+  useGetData,
+  useMainContext
+} from '../hooks'
 import { Section } from '../components/layouts'
 import { BtnGoBack, Heading } from '../components/ui'
-import { BtnOptions } from '../components/ui/form'
-import { useForm, useGetData } from '../hooks'
+import { BtnOptions, Completed } from '../components/ui/form'
+import ScheduleSVG from '../assets/ilustrations/schedule.svg'
 
 export const Hours = () => {
+  const { formValues } = useMainContext()
+
+  const completed = useCompleted([
+    formValues.modalidad,
+    formValues.horario
+  ])
+
   const modalidad = useGetData('modalidades')
   const horario = useGetData('horarios')
   const handleChange = useForm()
+
+  useChangeImg(ScheduleSVG)
 
   return (
     <Section>
@@ -42,9 +59,16 @@ export const Hours = () => {
           />
         </div>
       </form>
-      <Link className='btn btn--next' to='/tarifas'>
-        siguiente
-      </Link>
+
+      {completed ? (
+        <>
+          <Link className='btn btn--next' to='/tarifas'>
+            siguiente
+          </Link>
+        </>
+      ) : (
+        <Completed />
+      )}
       <BtnGoBack />
     </Section>
   )

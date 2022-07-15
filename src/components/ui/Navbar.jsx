@@ -1,8 +1,8 @@
 /* eslint-disable space-before-function-paren */
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { navbarLinks } from '../../data'
 import { useMainContext } from '../../hooks'
+import { navbarLinks } from '../../data'
 import s from '../../styles/components/Navbar.module.css'
 
 export const Navbar = () => {

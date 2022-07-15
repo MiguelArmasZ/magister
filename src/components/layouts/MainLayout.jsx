@@ -1,11 +1,12 @@
 import React from 'react'
-import { BtnMenu, Sidebar } from '../ui'
 import { Outlet } from 'react-router-dom'
+
+import { BtnMenu, Sidebar } from '../ui'
 
 export const MainLayout = () => {
   return (
     <>
-      <BtnMenu type />
+      <BtnMenu white />
       <div className='wrap'>
         <Sidebar />
         <Outlet />

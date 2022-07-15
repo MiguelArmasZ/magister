@@ -6,5 +6,5 @@ export const Heading = ({ children }) => {
 }
 
 Heading.propTypes = {
-  children: PropTypes.string
+  children: PropTypes.string.isRequired
 }

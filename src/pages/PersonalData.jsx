@@ -1,14 +1,30 @@
+/* eslint-disable multiline-ternary */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {
+  useChangeImg,
+  useCompleted,
+  useForm,
+  useMainContext
+} from '../hooks'
 import { Section } from '../components/layouts'
 import { BtnGoBack, Heading } from '../components/ui'
-import { InputFields } from '../components/ui/form'
+import { Completed, InputList } from '../components/ui/form'
 import { personalData } from '../data'
-import { useForm, useMainContext } from '../hooks'
+import PersonalDataSVG from '../assets/ilustrations/personal-data.svg'
 
 export const PersonalData = () => {
   const { formValues } = useMainContext()
+
+  const completed = useCompleted([
+    formValues.nombre,
+    formValues.nif,
+    formValues.mobile,
+    formValues.email
+  ])
   const handleChange = useForm()
+
+  useChangeImg(PersonalDataSVG)
 
   return (
     <Section>
@@ -30,21 +46,21 @@ export const PersonalData = () => {
           />
         </div>
 
-        <ul className='form-list'>
-          {personalData.map((field) => (
-            <InputFields
-              key={field.name}
-              handleChange={handleChange}
-              {...field}
-              value={formValues[field.name] || ''}
-            />
-          ))}
-        </ul>
+        <InputList
+          fields={personalData}
+          handleChange={handleChange}
+        />
       </form>
 
-      <Link className='btn btn--next' to='/direccion'>
-        siguiente
-      </Link>
+      {completed ? (
+        <>
+          <Link className='btn btn--next' to='/direccion'>
+            siguiente
+          </Link>
+        </>
+      ) : (
+        <Completed />
+      )}
       <BtnGoBack />
     </Section>
   )

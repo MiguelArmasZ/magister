@@ -1,6 +1,6 @@
 import React from 'react'
-import s from '../../styles/components/Logo.module.css'
 import Logotipo from '../../assets/logo.png'
+import s from '../../styles/components/Logo.module.css'
 
 export const Logo = () => {
   return (

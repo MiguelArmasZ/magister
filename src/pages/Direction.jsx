@@ -1,16 +1,36 @@
+/* eslint-disable multiline-ternary */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {
+  useChangeImg,
+  useCompleted,
+  useForm,
+  useGetData,
+  useMainContext
+} from '../hooks'
 import { Section } from '../components/layouts'
 import { BtnGoBack, Heading } from '../components/ui'
-import { InputFields, Select } from '../components/ui/form'
+import { Completed, InputList, Select } from '../components/ui/form'
 import { directionData } from '../data'
-import { useForm, useGetData, useMainContext } from '../hooks'
+import LocationSVG from '../assets/ilustrations/location.svg'
 
 export const Direction = () => {
   const { formValues } = useMainContext()
-  const handleChange = useForm()
 
+  const completed = useCompleted([
+    formValues.comunidad,
+    formValues.direction,
+    formValues.localidad,
+    formValues['provincia-examen'],
+    formValues.zip,
+    formValues.legal,
+    formValues['data-protection']
+  ])
+
+  const handleChange = useForm()
   const comunidades = useGetData('comunidades')
+
+  useChangeImg(LocationSVG)
 
   return (
     <Section>
@@ -43,16 +63,10 @@ export const Direction = () => {
           />
         </div>
 
-        <ul className='form-list'>
-          {directionData.map((field) => (
-            <InputFields
-              key={field.name}
-              handleChange={handleChange}
-              {...field}
-              value={formValues[field.name] || ''}
-            />
-          ))}
-        </ul>
+        <InputList
+          fields={directionData}
+          handleChange={handleChange}
+        />
 
         <ul className='form-list'>
           <li className='field checkbox'>
@@ -85,9 +99,16 @@ export const Direction = () => {
           </li>
         </ul>
       </form>
-      <Link className='btn btn--next' to='/pago'>
-        siguiente
-      </Link>
+
+      {completed ? (
+        <>
+          <Link className='btn btn--next' to='/pago'>
+            siguiente
+          </Link>
+        </>
+      ) : (
+        <Completed />
+      )}
       <BtnGoBack />
     </Section>
   )

@@ -1,3 +1,6 @@
 export * from './useMainContext'
 export * from './useGetData'
 export * from './useForm'
+export * from './useCompleted'
+export * from './useRegistration'
+export * from './useChangeImg'

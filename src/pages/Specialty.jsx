@@ -1,20 +1,39 @@
+/* eslint-disable multiline-ternary */
 import React from 'react'
+import { Link } from 'react-router-dom'
+import {
+  useChangeImg,
+  useCompleted,
+  useForm,
+  useGetData,
+  useMainContext
+} from '../hooks'
 import { Section } from '../components/layouts'
 import { Heading } from '../components/ui'
-import { Link } from 'react-router-dom'
-import { useForm, useGetData } from '../hooks'
 import {
   BtnOptions,
+  Completed,
   LinkCondition,
   Select
 } from '../components/ui/form'
+import SpecialtySVG from '../assets/ilustrations/specialty.svg'
 
 export const Specialty = () => {
+  const { formValues } = useMainContext()
+
+  const completed = useCompleted([
+    formValues.rama,
+    formValues.provincia,
+    formValues.alumno
+  ])
+
   const handleChange = useForm()
 
   const ramas = useGetData('ramas')
   const provincias = useGetData('provincias')
   const alumno = useGetData('alumno')
+
+  useChangeImg(SpecialtySVG)
 
   return (
     <Section>
@@ -67,9 +86,13 @@ export const Specialty = () => {
           </button>
         </div>
       </form>
-      <Link className='btn btn--next' to='/horario-y-modalidad'>
-        siguiente
-      </Link>
+      {completed ? (
+        <Link className='btn btn--next' to='/horario-y-modalidad'>
+          siguiente
+        </Link>
+      ) : (
+        <Completed />
+      )}
     </Section>
   )
 }

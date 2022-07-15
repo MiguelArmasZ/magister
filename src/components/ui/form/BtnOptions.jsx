@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 import { useMainContext } from '../../../hooks'
 
 export const BtnOptions = ({
-  options,
   name,
   class$ = '',
+  options,
   handleChange
 }) => {
   const [active, setActive] = useState(null)
   const { formValues } = useMainContext()
 
-  function handleActive(e, i) {
+  function handleActive(i) {
     setActive(i)
   }
 
@@ -22,7 +22,7 @@ export const BtnOptions = ({
         <button
           onClick={(e) => {
             handleChange(e)
-            handleActive(e, i)
+            handleActive(i)
           }}
           key={id}
           type='button'
@@ -42,8 +42,8 @@ export const BtnOptions = ({
 }
 
 BtnOptions.propTypes = {
-  options: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,
   class$: PropTypes.string,
+  options: PropTypes.array.isRequired,
   handleChange: PropTypes.func
 }

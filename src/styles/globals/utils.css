@@ -10,6 +10,22 @@
   justify-content: flex-start;
 }
 
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--white);
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+@media (min-width: 1023px) {
+  .main {
+    padding: 1rem 4rem;
+  }
+}
+
 .section {
   margin-top: 10rem;
   color: var(--blue-dark);
@@ -71,6 +87,18 @@ a.active::before {
 }
 
 .back::first-letter {
+  text-transform: uppercase;
+}
+
+.feedback {
+  border: 2px solid rgb(187, 22, 22);
+  padding: 1rem;
+  text-align: center;
+  border-radius: var(--radius);
+  color: rgb(187, 22, 22);
+}
+
+.feedback::first-letter {
   text-transform: uppercase;
 }
 
